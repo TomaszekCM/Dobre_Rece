@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from Oddam_app.views import main_view
 
@@ -23,3 +24,5 @@ urlpatterns = [
     path('', main_view.as_view()),
 
 ]
+
+urlpatterns += staticfiles_urlpatterns()

@@ -121,6 +121,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [(
+    os.path.join(BASE_DIR, "assets")
+)]
+
 
 try:
     from Dobre_Rece.local_settings import DATABASES
