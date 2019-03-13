@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views import View
 
+from Oddam_app.models import GlobalStatistics
+
 
 def test(request):
     """view written to check operations on base.html -> to be removed later"""
@@ -14,7 +16,8 @@ def test(request):
 
 class MainView(View):
     def get(self, request):
-        return render(request, "index.html")
+        global_stats = GlobalStatistics.objects.get(pk=1)
+        return render(request, "index.html", {"global": global_stats})
 
 
 class LoginView(View):
@@ -46,3 +49,23 @@ class LoginView(View):
 def log_out(request):
     logout(request)
     return redirect('main')
+
+
+def new_user(request):
+    return render(request, "new_user_choice.html")
+
+
+class NewPerson(View):
+    def get(self, request):
+        return render(request, "new_person.html")
+
+    def post(self, request):
+        return HttpResponse("Coś tam działa")
+
+
+class NewOrg(View):
+    def get(self, request):
+        return render(request, 'new_org.html')
+
+    def post(self, request):
+        pass

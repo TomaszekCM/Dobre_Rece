@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+
+{% block page %}
+
+
+{#        <div class="contact">#}
+{#          <h2>Skontaktuj się z nami</h2>#}
+{#          <h3>Formularz kontaktowy</h3>#}
+{#          <form>#}
+{#            <div class="form-group form-group--50">#}
+{#              <input type="text" name="name" placeholder="Imię" />#}
+{#            </div>#}
+{#            <div class="form-group form-group--50">#}
+{#              <input type="text" name="surname" placeholder="Nazwisko" />#}
+{#            </div>#}
+{##}
+{#            <div class="form-group">#}
+{#              <textarea name="message" placeholder="Wiadomość" rows="1"></textarea>#}
+{#            </div>#}
+{##}
+{#            <button class="btn" type="submit">Wyślij</button>#}
+{#          </form>#}
+{#        </div>#}
+
+
+    <p>
+
+    <form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+
+        <input placeholder="Imię" required>
+
+    </div>
+
+    <div class="form-group">
+
+        <input placeholder="Nazwisko" required>
+
+    </div>
+
+    <div class="form-group">
+
+        <input type="email" placeholder="adres email" required>
+
+    </div>
+
+    <div class="form-group">
+
+        <input type="password" placeholder="Hasło" required>
+
+    </div>
+
+    <div class="form-group">
+
+        <input type="password" placeholder="Potwierdź hasło" required>
+
+    </div>
+
+
+            <div class="form-group">
+
+                <h3>Adres (opcjonalnie - automatycznie będzie się uzupełniać w formularzach zbiórek)</h3>
+
+            </div>
+
+
+    <div class="form-group">
+
+        <input placeholder="Ulica">
+
+    </div>
+
+    <div class="form-group">
+
+        <input placeholder="Miasto">
+
+    </div>
+
+    <div class="form-group">
+
+        <input placeholder="Kod pocztowy">
+
+    </div>
+
+    <div class="form-group">
+
+        <input placeholder="Numer telefonu">
+
+    </div>
+
+        <br>
+
+    <div class="form-group form-group--50">
+
+        <input type="submit" value="Zatwierdź">
+
+    </div>
+
+
+    </form>
+
+    </p>
+
+{% endblock %}

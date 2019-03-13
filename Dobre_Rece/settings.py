@@ -25,7 +25,7 @@ SECRET_KEY = 'yy76uec^v-3^ld_srko67*z55ionz!f-gq190xa&@u^*(ggrjc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -131,4 +131,11 @@ try:
 except ModuleNotFoundError:
     print("Brak konfiguracji bazy danych w pliku local_settings.py!")
     print("Uzupełnij dane i spróbuj ponownie!")
+    exit(0)
+
+
+try:
+    from Dobre_Rece.local_settings import ALLOWED_HOSTS
+except ModuleNotFoundError:
+    print("Brak konfiguracji hostów")
     exit(0)

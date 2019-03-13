@@ -17,13 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from Oddam_app.views import MainView, LoginView, log_out, test
+from Oddam_app.views import MainView, LoginView, log_out, test, new_user, NewPerson, NewOrg
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainView.as_view(), name="main"),
     path('login/', LoginView.as_view(), name="login"),
     path('logout/', log_out, name="logout"),
+    path('new/', new_user, name="new_user"),
+    path('new/person/', NewPerson.as_view()),
+    path('new/organisation/', NewOrg.as_view()),
     path('test/', test),
 ]
 
